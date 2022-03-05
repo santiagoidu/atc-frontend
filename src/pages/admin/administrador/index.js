@@ -1,12 +1,11 @@
 import React from "react";
-import Rotas from "./routes";
 
-function App() {
+export default function Administador() {
   return (
     <div className="App">
-     <Rotas />
+     <h1>Administador</h1>
     </div>
   );
 }
 
-export default App;
+

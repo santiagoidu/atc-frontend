@@ -1,12 +1,11 @@
 import React from "react";
-import Rotas from "./routes";
 
-function App() {
+export default function UsuarioCadastrar() {
   return (
     <div className="App">
-     <Rotas />
+     <h1>Cadastrar Usuarios</h1>
     </div>
   );
 }
 
-export default App;
+
