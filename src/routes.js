@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Routes, Route } from  "react-router-dom"
+import { BrowserRouter, Switch, Route } from  "react-router-dom"
 
 import Dashboard from "./pages/admin/dashboard";
 import Produtos from "./pages/admin/produtos";
@@ -16,7 +16,7 @@ import Administador from "./pages/admin/administrador";
 export default function Rotas(){
     return(
        <BrowserRouter>
-            <Routes>
+            <Switch>
                 <Route path="/" exact component={Dashboard} />
                 <Route path="/admin/produtos" exact component={Produtos} />
                 <Route path="/admin/produtos/cadastrar" exact component={ProdutosCadastrar} />
@@ -26,7 +26,7 @@ export default function Rotas(){
                 <Route path="/admin/usuario/cadastrar" exact component={UsuarioCadastrar} />
                 <Route path="/admin/usuario/editar/:idProduto" exact component={UsuarioEditar} />
                 <Route path="/admin/admin" exact component={Administador} />
-            </Routes>
+            </Switch>
        </BrowserRouter> 
     )
 }
