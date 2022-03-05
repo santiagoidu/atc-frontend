@@ -11,29 +11,29 @@ import MemoryIcon from '@mui/icons-material/Memory';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
-      <ListItemIcon>
+    <ListItemButton component="a" href="/admin/produtos/touchDisplay">
+      <ListItemIcon >
         <AppSettingsAltIcon />
       </ListItemIcon>
       <ListItemText primary="Touch & Display" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component="a" href="/admin/produtos/bateria">
       <ListItemIcon>
         <BatteryCharging80Icon />
       </ListItemIcon>
       <ListItemText primary="Baterias" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component="a" href="/admin/produtos/cameras">
       <ListItemIcon>
         <PhotoCameraIcon />
       </ListItemIcon>
       <ListItemText primary="Câmeras" />
-    </ListItemButton>
-    <ListItemButton>
+    </ListItemButton >
+    <ListItemButton component="a" href="/admin/produtos/flexConectores">
       <ListItemIcon>
         <MemoryIcon />
       </ListItemIcon>
-      <ListItemText primary="Flex e Conectores" />
+      <ListItemText component="a" primary="Flex e Conectores" />
     </ListItemButton>
   </React.Fragment>
 );
@@ -42,8 +42,8 @@ export const secondaryListItems = (
   <React.Fragment>
    
    
-    <ListItemButton>
-      <ListItemIcon>
+    <ListItemButton component="a" href="/admin/admin">
+      <ListItemIcon >
         <DoDisturbOnIcon />
       </ListItemIcon>
       <ListItemText primary="Acesso Restrito" />

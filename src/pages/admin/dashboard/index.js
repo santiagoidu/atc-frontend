@@ -23,8 +23,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://atacadao.io/">
+        Atacadão do celular
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -63,6 +63,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
+        backgroundColor: '#068D54',
       }),
       boxSizing: 'border-box',
       ...(!open && {
@@ -70,6 +71,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         transition: theme.transitions.create('width', {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
+          backgroundColor: '#068D54',
         }),
         width: theme.spacing(7),
         [theme.breakpoints.up('sm')]: {
@@ -90,7 +92,7 @@ function DashboardContent() {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', backgroundColor: '#068D54', }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
           <Toolbar
@@ -151,7 +153,7 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4, }}>
             <Grid container spacing={3}>
               
             
