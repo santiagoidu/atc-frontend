@@ -1,58 +1,129 @@
 import * as React from 'react';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import LogoutIcon from '@mui/icons-material/Logout';
-import BatteryCharging80Icon from '@mui/icons-material/BatteryCharging80';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
-import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
-import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
-import MemoryIcon from '@mui/icons-material/Memory';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { mainListItems, secondaryListItems } from './list-menu-admin';
+import List from '@mui/material/List';
+import { Drawer } from '@mui/material';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import MuiDrawer from '@mui/material/Drawer';
+import Box from '@mui/material/Box';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
-export const mainListItems = (
-  <React.Fragment>
-    <ListItemButton component="a" href="/admin/produtos/touchDisplay">
-      <ListItemIcon >
-        <AppSettingsAltIcon />
-      </ListItemIcon>
-      <ListItemText primary="Touch & Display" />
-    </ListItemButton>
-    <ListItemButton component="a" href="/admin/produtos/bateria">
-      <ListItemIcon>
-        <BatteryCharging80Icon />
-      </ListItemIcon>
-      <ListItemText primary="Baterias" />
-    </ListItemButton>
-    <ListItemButton component="a" href="/admin/produtos/cameras">
-      <ListItemIcon>
-        <PhotoCameraIcon />
-      </ListItemIcon>
-      <ListItemText primary="Câmeras" />
-    </ListItemButton >
-    <ListItemButton component="a" href="/admin/produtos/flexConectores">
-      <ListItemIcon>
-        <MemoryIcon />
-      </ListItemIcon>
-      <ListItemText component="a" primary="Flex e Conectores" />
-    </ListItemButton>
-  </React.Fragment>
-);
+import LogoAtc from '../assets/img/logo.png';
 
-export const secondaryListItems = (
-  <React.Fragment>
+import '../assets/css/logo.css'
+
+export default function MenuAdmin(){
+    const drawerWidth = 240;
+
+    const AppBar = styled(MuiAppBar, {
+      shouldForwardProp: (prop) => prop !== 'open',
+    })(({ theme, open }) => ({
+      zIndex: theme.zIndex.drawer + 1,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+        backgroundColor: '#068D54',
+      }),
+      ...(open && {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(['width', 'margin'], {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.enteringScreen,
+          backgroundColor: '#068D54',
+        }),
+      }),
+    }));
+    
+    const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+      ({ theme, open }) => ({
+        '& .MuiDrawer-paper': {
+          position: 'relative',
+          whiteSpace: 'nowrap',
+          width: drawerWidth,
+          transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+            backgroundColor: '#068D54',
+          }),
+          boxSizing: 'border-box',
+          ...(!open && {
+            overflowX: 'hidden',
+            transition: theme.transitions.create('width', {
+              easing: theme.transitions.easing.sharp,
+              duration: theme.transitions.duration.leavingScreen,
+              backgroundColor: '#068D54',
+            }),
+            width: theme.spacing(7),
+            [theme.breakpoints.up('sm')]: {
+              width: theme.spacing(9),
+            },
+          }),
+        },
+      }),
+    );
+    
+    const [open, setOpen] = React.useState(true);
+    const toggleDrawer = () => {
+      setOpen(!open);
+    };
+
    
-   
-    <ListItemButton component="a" href="/admin/admin">
-      <ListItemIcon >
-        <DoDisturbOnIcon />
-      </ListItemIcon>
-      <ListItemText primary="Acesso Restrito" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <LogoutIcon />
-      </ListItemIcon>
-      <ListItemText primary="Sair" />
-    </ListItemButton>
-  </React.Fragment>
-);
+    return(
+        <>
+        <AppBar position="absolute" open={open}>
+            
+          <Toolbar
+            sx={{
+              pr: '24px',
+              backgroundColor: '#DC143C' // keep right padding when drawer closed
+            }}
+          > 
+            <img src={LogoAtc} className="logoHorizontal"/>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer}
+              sx={{
+                marginRight: '36px',
+                ...(open && { display: 'none', backgroundColor: '#068D54', }),
+              }}
+            >
+            </IconButton>
+            <IconButton color="inherit">
+            
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <Toolbar
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              px: [0],
+              backgroundColor: '#DC143C'
+            }}
+          >
+            <IconButton onClick={toggleDrawer}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </Toolbar>
+          <Divider />
+          <List component="nav" sx={{backgroundColor: '#DC143C', color: '#fff'}}>
+            {mainListItems}
+            <Divider sx={{ my: 17, backgroundColor: '#DC143C',}} />
+            {secondaryListItems}
+          </List>
+        </Drawer>
+        </>
+    );
+        }
