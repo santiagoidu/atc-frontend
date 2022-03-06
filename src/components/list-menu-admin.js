@@ -33,7 +33,7 @@ export const mainListItems = (
       <ListItemIcon>
         <MemoryIcon />
       </ListItemIcon>
-      <ListItemText component="a" primary="Flex e Conectores" />
+      <ListItemText component="a" primary="Flex e Componentes" />
     </ListItemButton>
   </React.Fragment>
 );
