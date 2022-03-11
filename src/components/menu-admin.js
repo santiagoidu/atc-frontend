@@ -29,7 +29,7 @@ export default function MenuAdmin(){
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
-        backgroundColor: '#068D54',
+        backgroundColor: '#DC143C'
       }),
       ...(open && {
         marginLeft: drawerWidth,
@@ -37,7 +37,7 @@ export default function MenuAdmin(){
         transition: theme.transitions.create(['width', 'margin'], {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.enteringScreen,
-          backgroundColor: '#068D54',
+          backgroundColor: '#DC143C'
         }),
       }),
     }));
@@ -51,7 +51,7 @@ export default function MenuAdmin(){
           transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
-            backgroundColor: '#068D54',
+            backgroundColor: '#DC143C'
           }),
           boxSizing: 'border-box',
           ...(!open && {
@@ -59,11 +59,12 @@ export default function MenuAdmin(){
             transition: theme.transitions.create('width', {
               easing: theme.transitions.easing.sharp,
               duration: theme.transitions.duration.leavingScreen,
-              backgroundColor: '#068D54',
+              backgroundColor: '#DC143C'
             }),
             width: theme.spacing(7),
             [theme.breakpoints.up('sm')]: {
               width: theme.spacing(9),
+              backgroundColor: '#DC143C',
             },
           }),
         },
@@ -94,7 +95,7 @@ export default function MenuAdmin(){
               onClick={toggleDrawer}
               sx={{
                 marginRight: '36px',
-                ...(open && { display: 'none', backgroundColor: '#068D54', }),
+                ...(open && { display: 'none', }),
               }}
             >
             </IconButton>
@@ -120,7 +121,7 @@ export default function MenuAdmin(){
           <Divider />
           <List component="nav" sx={{backgroundColor: '#DC143C', color: '#fff'}}>
             {mainListItems}
-            <Divider sx={{ my: 17, backgroundColor: '#DC143C',}} />
+            <Divider sx={{ my: 18, backgroundColor: '#DC143C',}} />
             {secondaryListItems}
           </List>
         </Drawer>

@@ -5,3 +5,25 @@
     padding-left: 52px;
     
 }
+
+#salvar {
+    display: flex;
+    padding: 10px;
+    left: 580px;
+    top: -70px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #068D54;
+    color:antiquewhite;
+}
+
+#editar {
+    display: flex;
+    padding: 10px;
+    left: 650px;
+    top: -110px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #ffe203;
+    color:rgb(0, 0, 0);
+}
