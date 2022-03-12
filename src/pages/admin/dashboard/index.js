@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import MenuAdmin from "../../../components/menu-admin"
 
+import DataCompleta from "../../../components/dataCompleta"
 import LogoAtc from '../../../assets/img/logo.png';
 import '../../../assets/css/logo.css';
 
@@ -42,8 +43,9 @@ export default function Dashboard() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4, }}>
             <Grid container spacing={3}>
-              
-            
+
+            <DataCompleta />
+            <p className='date1'>  Selecione uma das opções a esquerda</p>
             </Grid>
           </Container>
         </Box>
